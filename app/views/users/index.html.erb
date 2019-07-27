@@ -1,0 +1,15 @@
+<h1>View all Companies</h1>
+
+
+<%  @users.each do |user| %>
+  <% unless user.name == 'Admin' %>
+    <div class="listing">
+      <%= image_tag user.logo_image, :class => 'thumb' if user.logo_image.present? %>
+      <h3><%= link_to user.name, user %></h3>
+      <p><%= user.tag_line %></p>
+      <p><%= truncate(user.about, length: 300) %></p>
+      <p>Find out more at: <%= user.more %> </p>
+    </div>
+  <% end %>
+
+<% end %>
