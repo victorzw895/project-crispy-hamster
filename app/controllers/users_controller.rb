@@ -4,10 +4,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find user_params
+    @user = User.find params[:id]
   end
 
   def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create user_params
   end
 
   def edit
@@ -15,5 +20,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
+    params.require(:user).permit(:email, :name, :tag_line, :about, :logo_image, :banner_image, :more)
   end
+
 end
