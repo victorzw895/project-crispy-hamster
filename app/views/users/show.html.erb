@@ -1,9 +1,14 @@
-<div class="banner_image">
-  <%= image_tag @user.banner_image, :class => 'banner'%>
-</div>
 
+<% if @user.banner_image.present? %>
+  <div class="banner_image">
+    <%= image_tag @user.banner_image, :class => 'banner' %>
+  </div>
+<% end %>
 
-<%= image_tag @user.logo_image, :class => 'logo'%>
+<% if @user.logo_image.present? %>
+  <%= image_tag @user.logo_image, :class => 'logo'%>
+<% end %>
+
 <h1><%= @user.name %></h1>
 
 <div class="company_about">

@@ -8,10 +8,10 @@
 
 Industry.destroy_all
 puts "Creating Industries"
-i1 = Industry.create :name => 'Professional, Scientific, Technical Services'
+i1 = Industry.create :name => 'Computer Software'
 i2 = Industry.create :name => 'Construction'
-i3 = Industry.create :name => 'Financial and Insurance Services'
-i3 = Industry.create :name => 'Health Care and Social Assistance'
+i3 = Industry.create :name => 'Attorneys/Law Firms'
+i4 = Industry.create :name => 'Health Care and Social Assistance'
 
 User.destroy_all
 puts "Creating Users"
@@ -43,3 +43,12 @@ Our goal was to inspire this audience of more than 200 curated entrepreneurs, ac
 p2 = Post.create :title => 'Maya', :content => 'Make it with Maya computer animation software', :media => 'https://cerise.com/content/uploads/2017/02/hero-autodesk-maya.jpg', :content_type => 'Product'
 
 p3 = Post.create :title => 'SAS® 9.4M6 is Now Available', :content => 'The sixth maintenance release for SAS 9.4, which includes the Analytical Products 15.1, is the most recent release of the SAS®9 platform and became available November 2018. SAS 9.4 TS1M6 (9.4M6) continues to harden the platform and deliver customer-requested functionality.', :media => 'https://support.sas.com/software/94/index.html', :content_type => 'Product'
+
+puts "associations"
+u1.posts << p1 << p2
+u2.posts << p3
+
+u1.industries << i1
+u2.industries << i1
+u3.industries << i1 << i3
+u4.industries << i1 << i4

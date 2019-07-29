@@ -1,0 +1,14 @@
+<h1>Latest Feed</h1>
+
+
+
+<%  @posts.each_with_index do |post, index| %>
+  <div class="listing">
+    <%= image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
+    <h3><%= link_to post.user.name, post.user %></h3>
+    <p><%= link_to post.title, post %></p>
+    <p><%= truncate(post.content, length: 300) %></p>
+    <p>Media: <%= post.media %> </p>
+  </div>
+
+<% end %>

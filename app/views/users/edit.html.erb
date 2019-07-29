@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1><%= @user.name %></h1>
+
+<h1>Edit Profile</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :tag_line %>
+  <%= f.text_field :tag_line %>
+  <%= f.label :about %>
+  <%= f.text_field :about %>
+  <%= f.label :logo_image %>
+  <%= f.text_field :logo_image %>
+  <%= f.label :banner_image %>
+  <%= f.text_field :banner_image %>
+  <%= f.label :more %>
+  <%= f.text_field :more %>
+<% end %>

@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
 
   root :to => 'users#index'
-  resources :users, :except => [:edit, :destroy]
+  get '/users/edit' => 'users#edit', :as => :edit_user
+  resources :users, :except => [:edit, :destroy, :update]
+  resources :posts
+
 
 
   get '/login' => 'session#new'
