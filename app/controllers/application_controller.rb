@@ -1,4 +1,6 @@
+
 class ApplicationController < ActionController::Base
+
 
 
 # FOR SESSION ##################################
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by :id => session[:user_id] if session[:user_id].present? # returns nil if false
     session[:user_id] = nil unless @current_user.present?
   end
-  
+
   def check_for_login
     redirect_to login_path unless @current_user.present?
   end

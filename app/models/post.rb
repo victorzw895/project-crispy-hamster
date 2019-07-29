@@ -13,5 +13,15 @@
 #
 
 class Post < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :user, :optional => true
+  has_many :industries, through: :user
+
+  pg_search_scope :search_by_title, against: :title
+  pg_search_scope :industry_search, associated_against: {
+  industries: :name,
+  user: :name
+}
+
 end
