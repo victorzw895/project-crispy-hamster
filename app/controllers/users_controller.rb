@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :check_for_login, :only => [:edit, :update]
 
   def index
-    @users = User.all
+    if params[:query].present?
+      @users = User.order(created_at: :desc).search_industry(params[:query])
+    else
+      @users = User.all.order(created_at: :desc)
+    end
   end
 
   def new

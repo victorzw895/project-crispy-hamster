@@ -16,6 +16,7 @@
 #
 
 class User < ApplicationRecord
+  include PgSearch::Model
 
   has_secure_password
 
@@ -24,4 +25,10 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :industries
   has_many :posts
+
+  pg_search_scope :search_by_name, against: :name
+  pg_search_scope :search_industry, associated_against: {
+  industries: :name
+  }
+
 end

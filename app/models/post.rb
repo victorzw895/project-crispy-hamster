@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   has_many :industries, through: :user
 
   pg_search_scope :search_by_title, against: :title
-  pg_search_scope :industry_search, associated_against: {
+  pg_search_scope :search_industry, associated_against: {
   industries: :name,
   user: :name
 }

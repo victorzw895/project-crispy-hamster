@@ -10,7 +10,7 @@ Industry.destroy_all
 puts "Creating Industries"
 i1 = Industry.create :name => 'Computer Software'
 i2 = Industry.create :name => 'Construction'
-i3 = Industry.create :name => 'Attorneys/Law Firms'
+i3 = Industry.create :name => "Attorneys/Law Firms"
 i4 = Industry.create :name => 'Health Care and Social Assistance'
 
 User.destroy_all

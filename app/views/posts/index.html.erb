@@ -1,6 +1,16 @@
 <h1>Latest Feed</h1>
 
+<!-- < %= form_for @posts do |f| % >
+< %= f.query :query % >
 
+< %= f.submit "Search"% >
+
+< % end % > -->
+
+<form action="/posts">
+<input type="text" name="query" id="query" placeholder="I want to find">
+<button>Search</button>
+</form>
 
 <%  @posts.each_with_index do |post, index| %>
   <div class="listing">

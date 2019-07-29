@@ -1,5 +1,29 @@
-<h1>View all Companies</h1>
 
+<div class="row">
+  <div class="col-md-5 offset-md-4">
+    <h1>View all Companies</h1>
+  </div>
+</div>
+
+<form action="/users">
+<input type="text" name="query" id="query" placeholder="I want to find">
+<button>Search</button>
+</form>
+
+<div class="row">
+  <div class="col-md-3">
+    <h2>Trump Assassinated</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod, asperiores dicta doloremque sequi eligendi porro perspiciatis dolor cumque voluptates quis tempora animi ipsum neque et, nulla sint, modi deserunt.</p>
+  </div>
+  <div class="col-md-6">
+    <h2>Royal Family Actually Lizards</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos temporibus iusto laborum voluptatibus et omnis asperiores, repudiandae natus, dignissimos, quisquam ratione ipsam itaque harum nesciunt earum vel vero numquam.</p>
+  </div>
+  <div class="col-md-3">
+    <h2>Moon Landing Faked</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe id quisquam recusandae minus tenetur, perspiciatis animi qui commodi ad sequi, voluptatibus nihil ratione consectetur eum consequatur eligendi placeat deserunt totam.</p>
+  </div>
+</div>
 
 <%  @users.each do |user| %>
   <% unless user.name == 'Admin' %>
