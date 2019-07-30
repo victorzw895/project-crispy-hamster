@@ -49,6 +49,11 @@
                 <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete', :class => "dropdown-item" %>
               </div>
             </li>
+            <% if session[:selected_industry].present? %>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%= "Selected Industry: #{ session[:selected_industry] }" %></a>
+              </li>
+            <% end %>
           <% else %>
             <li class="nav-item">
               <%= link_to "Sign Up", new_user_path, :class => "nav-link" %>
@@ -68,6 +73,7 @@
 
     <video class="fun" width="320" height="320" controls autoplay loop src="/assets/salmon.mp4"></video>
 
+    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="left" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
       <%= yield %>
     </div>

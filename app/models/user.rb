@@ -23,12 +23,22 @@ class User < ApplicationRecord
   # validations - see the rails guide for more
   # validates :email, :presence => true, :uniqueness => true
 
-  has_and_belongs_to_many :industries
+  has_and_belongs_to_many :industries, :optional => true
   has_many :posts
 
-  pg_search_scope :search_by_name, against: :name
+  # pg_search_scope :search_by_name, against: :name
+  # , using: [:tsearch, :trigram, :dmetaphone]
+  # pg_search_scope :search_industry, associated_against: {
+  # industries_users: [:industry_id, :users_id],
+  # industries: [:industry_id, :name]
+  # }
   pg_search_scope :search_industry, associated_against: {
   industries: :name
   }
+# ### Trial
+  # pg_search_scope :search_industry, associated_against: {
+  # industries_users: :industry_id, :user_id
+  # industries: :id
+  # }
 
 end

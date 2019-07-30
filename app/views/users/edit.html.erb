@@ -3,14 +3,26 @@
 <h1>Edit Profile</h1>
 
 <%= form_for @user do |f| %>
-  <%= f.label :tag_line %>
-  <%= f.text_field :tag_line %>
-  <%= f.label :about %>
-  <%= f.text_field :about %>
-  <%= f.label :logo_image %>
-  <%= f.text_field :logo_image %>
-  <%= f.label :banner_image %>
-  <%= f.text_field :banner_image %>
-  <%= f.label :more %>
-  <%= f.text_field :more %>
+  <div class="form-group">
+    <%= f.label :tag_line %>
+    <%= f.text_field :tag_line, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :industry_ids %>
+    <%= f.select :industry_ids, Industry.pluck(:name, :id), :include_blank => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo_image %>
+    <%= f.text_field :logo_image, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner_image %>
+    <%= f.text_field :banner_image, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :more %>
+    <%= f.text_field :more, :class => "form-control" %>
+  </div>
+
+  <%= f.submit "Update", :class => "btn btn-primary" %>
 <% end %>

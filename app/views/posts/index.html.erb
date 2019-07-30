@@ -1,3 +1,17 @@
+<div class="form-group">
+  <form action="/posts">
+    <label for="exampleFormControlSelect2">Select Industries</label>
+    <select multiple class="form-control" id="query" name="query">
+      <option>All</option>
+      <% Industry.all.each do |industry| %>
+        <option><%= industry.name %></option>
+      <% end %>
+    </select>
+    <button class="btn btn-info btn-sm">Search</button>
+  </form>
+</div>
+
+
 <h1>Latest Feed</h1>
 
 <!-- < %= form_for @posts do |f| % >
@@ -12,7 +26,7 @@
 <button>Search</button>
 </form>
 
-<%  @posts.each_with_index do |post, index| %>
+<%  @posts.each do |post| %>
   <div class="listing">
     <%= image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
     <h3><%= link_to post.user.name, post.user %></h3>

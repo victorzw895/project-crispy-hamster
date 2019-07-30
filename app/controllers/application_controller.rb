@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
 # FOR SESSION ##################################
   before_action :fetch_user
+  # before_action :fetch_selection
+  # before_action :fetch_selection
 
   private
   # Set up a @current_user instance variable if we can find a user_id in this session.
@@ -20,5 +22,6 @@ class ApplicationController < ActionController::Base
   # def check_for_admin
   #   redirect_to root_path unless @current_user.present? && @current_user.admin?
   # end
+
 
 end

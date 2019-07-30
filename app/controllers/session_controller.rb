@@ -11,7 +11,6 @@ class SessionController < ApplicationController
       flash[:error_message] = "Invalid email or password"
       redirect_to login_path # throw away data, and make user login again from scratch
     end
-
   end
 
   def destroy
