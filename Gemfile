@@ -56,3 +56,5 @@ gem "bootstrap"
 gem 'pg_search'
 
 gem 'rails_12factor', group: :production
+
+gem 'rails-erd', group: :development
