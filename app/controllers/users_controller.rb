@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   before_action :check_for_login, :only => [:edit, :update]
+  # before_action :check_for_admin, :only => [:show]
 
   def index
     if params[:query] == 'All'
       @users = User.all.order(created_at: :desc)
-    elsif params[:query].present? || session[:selected_industry].present?
+    elsif params[:query].present?
       @users = User.order(created_at: :desc).search_industry(params[:query])
+    elsif session[:selected_industry].present?
+      @users = User.order(created_at: :desc).search_industry(session[:selected_industry])
     else
       @users = User.all.order(created_at: :desc)
     end
@@ -41,12 +44,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = User.find params[:id] unless @current_user.admin? redirect_to users_path
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :name, :tag_line, :about, :logo_image, :banner_image, :more, :password, :password_confirmation)
+    params.require(:user).permit(:email, :name, :tag_line, :about, :logo_image, :banner_image, :more, :password, :password_confirmation, industry_ids:[])
   end
 
 end

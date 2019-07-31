@@ -14,8 +14,10 @@ class PostsController < ApplicationController
   def index
     if params[:query] == 'All'
       @posts = Post.all.order(created_at: :desc)
-    elsif params[:query].present? || session[:selected_industry].present?
+    elsif params[:query].present?
       @posts = Post.order(created_at: :desc).search_industry(params[:query])
+    elsif session[:selected_industry].present?
+      @posts = Post.order(created_at: :desc).search_industry(session[:selected_industry])
     else
       @posts = Post.all.order(created_at: :desc)
     end
@@ -34,7 +36,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:query, :user_id, :title, :content, :media, :content_type)
+    params.require(:post).permit(:query, :user_id, :title, :content, :media, :content_type, user_ids:[])
   end
 
 end

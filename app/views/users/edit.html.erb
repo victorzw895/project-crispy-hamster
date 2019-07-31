@@ -8,8 +8,14 @@
     <%= f.text_field :tag_line, :class => "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :industry_ids %>
-    <%= f.select :industry_ids, Industry.pluck(:name, :id), :include_blank => true, :class => "form-control" %>
+    <%= f.label :industries %>
+    <%= f.collection_check_boxes :industry_ids, Industry.all, :id, :name do |b| %>
+    <div class="collection-check-box" multiple>
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+    <% end %>
+     <!-- Industry.pluck(:name, :id), :include_blank => true, :class => "form-control"  -->
   </div>
   <div class="form-group">
     <%= f.label :logo_image %>

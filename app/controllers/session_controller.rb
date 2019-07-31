@@ -15,6 +15,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:selected_industry] = nil
     redirect_to login_path
   end
 

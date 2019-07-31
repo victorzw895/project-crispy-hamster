@@ -15,7 +15,7 @@ i4 = Industry.create :name => 'Health Care and Social Assistance'
 
 User.destroy_all
 puts "Creating Users"
-u0 = User.create :email => 'admin@ga.co', :name => 'Admin', :password => 'chicken'
+u0 = User.create :email => 'admin@ga.co', :name => 'Admin', :password => 'chicken', :admin => true
 u1 = User.create :email => 'autodesk@email.com', :name => 'AutoDesk', :tag_line => 'MAKE ANYTHING', :about => 'Autodesk makes software for people who make things. If you’ve ever driven a high-performance car, admired a towering skyscraper, used a smartphone, or watched a great film, chances are you’ve experienced what millions of Autodesk customers are doing with our software.', :logo_image => 'https://damassets.autodesk.net/content/dam/mgs/mgs/brand-elements/tagline/tagline-lockup-stacked-tm-v3-1378x620.jpg', :banner_image => 'http://intellisolutions-dz.com/wp-content/uploads/2017/04/autodesk-banner.jpg', :more => 'https://www.autodesk.com.au/', :password => 'chicken'
 
 u2 = User.create :email => 'sas@email.com', :name => 'SAS', :tag_line => 'Innovate With Analytics', :about =>
