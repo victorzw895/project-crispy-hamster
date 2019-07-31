@@ -3,7 +3,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.text :email
       t.text :name
-      t.boolean :company, :default => false
       # t.bigint :industry_id
       t.text :tag_line #focus
       t.text :about
