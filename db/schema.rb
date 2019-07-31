@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_233921) do
     t.bigint "user_id"
     t.text "title"
     t.text "content"
-    t.text "media"
+    t.text "image"
     t.text "content_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_233921) do
   create_table "users", force: :cascade do |t|
     t.text "email"
     t.text "name"
+    t.boolean "company", default: false
     t.text "tag_line"
     t.text "about"
     t.text "logo_image"

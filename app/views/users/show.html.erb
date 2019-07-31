@@ -1,12 +1,12 @@
 
 <% if @user.banner_image.present? %>
   <div class="banner_image">
-    <%= image_tag @user.banner_image, :class => 'banner' %>
+    <%= cl_image_tag @user.banner_image, :class => 'banner' %>
   </div>
 <% end %>
 
 <% if @user.logo_image.present? %>
-  <%= image_tag @user.logo_image, :class => 'logo'%>
+  <%= cl_image_tag @user.logo_image, :class => 'logo'%>
 <% end %>
 
 <h1><%= @user.name %></h1>
@@ -17,7 +17,18 @@
   </p>
 </div>
 
+<div class="new_post">
+
+</div>
+
 <div class="recent_posts">
-  <div class="posts">
-  </div>
+  <% @posts.each do |post| %>
+    <div class="listing">
+      <%= cl_image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
+      <h3><%= link_to post.user.name, post.user %></h3>
+      <p><%= link_to post.title, post %></p>
+      <p><%= truncate(post.content, length: 300) %></p>
+      <p>Image: <%= post.image %> </p>
+    </div>
+  <% end %>
 </div>

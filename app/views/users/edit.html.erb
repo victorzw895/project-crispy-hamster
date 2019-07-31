@@ -2,33 +2,79 @@
 
 <h1>Edit Profile</h1>
 
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :tag_line %>
-    <%= f.text_field :tag_line, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :industries %>
-    <%= f.collection_check_boxes :industry_ids, Industry.all, :id, :name do |b| %>
-    <div class="collection-check-box" multiple>
-      <%= b.check_box %>
-      <%= b.label %>
+<div class="company-edit-form">
+  <%= form_for @user, :html => {:multipart => true} do |f| %>
+    <div class="form-group">
+      <%= f.label :tag_line %>
+      <%= f.text_field :tag_line, :class => "form-control" %>
     </div>
-    <% end %>
-     <!-- Industry.pluck(:name, :id), :include_blank => true, :class => "form-control"  -->
-  </div>
-  <div class="form-group">
-    <%= f.label :logo_image %>
-    <%= f.text_field :logo_image, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :banner_image %>
-    <%= f.text_field :banner_image, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :more %>
-    <%= f.text_field :more, :class => "form-control" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :industries %>
+      <%= f.collection_check_boxes :industry_ids, Industry.all, :id, :name do |b| %>
+        <div class="collection-check-box" multiple>
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
+      <%= f.label :add_new_industry %>
+      <!-- < %= text_field :industry, :name, :class => "form-control" %> -->
+      <%= text_field_tag :industry_name, nil, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :about %>
+      <%= f.text_area :about, :class => "form-control", :rows => 4 %>
+    </div>
+    <div class="form-group">
+      <%= f.label :logo_image %>
+      <%= f.cl_image_upload :logo_image, :class => "form-control", :id => 'logo' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :banner_image %>
+      <%= f.cl_image_upload :banner_image, :class => "form-control", :id => 'banner' %>
+    </div>
+    <script>
+    document.querySelectorAll('input[type="file"]')[0].setAttribute('name', 'logo');
+    document.querySelectorAll('input[type="file"]')[1].setAttribute('name', 'banner');
+    </script>
+    <div class="form-group">
+      <%= f.label :more %>
+      <%= f.text_field :more, :class => "form-control" %>
+    </div>
 
-  <%= f.submit "Update", :class => "btn btn-primary" %>
-<% end %>
+    <%= f.submit "Update", :class => "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+
+<div class="user-edit-form">
+  <%= form_for @user, :html => {:multipart => true} do |f| %>
+
+    <div class="form-group">
+      <%= f.label :about %>
+      <%= f.text_area :about, :class => "form-control", :rows => 4 %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :logo_image %>
+      <%= f.cl_image_upload :logo_image, :class => "form-control", :id => 'logo' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :banner_image %>
+      <%= f.cl_image_upload :banner_image, :class => "form-control", :id => 'banner' %>
+    </div>
+    <script>
+    document.querySelectorAll('input[type="file"]')[0].setAttribute('name', 'logo');
+    document.querySelectorAll('input[type="file"]')[1].setAttribute('name', 'banner');
+    </script>
+    <div class="form-group">
+      <%= f.label :more %>
+      <%= f.text_field :more, :class => "form-control" %>
+    </div>
+
+    <%= f.submit "Update", :class => "btn btn-primary" %>
+  <% end %>
+</div>

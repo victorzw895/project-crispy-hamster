@@ -33,12 +33,12 @@
   </div>
 </div>
 
-<form action="/users">
+<!-- <form action="/users">
 <input type="text" name="query" id="query" placeholder="I want to find">
 
-</form>
+</form> -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-3">
     <h2>Trump Assassinated</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod, asperiores dicta doloremque sequi eligendi porro perspiciatis dolor cumque voluptates quis tempora animi ipsum neque et, nulla sint, modi deserunt.</p>
@@ -51,12 +51,12 @@
     <h2>Moon Landing Faked</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe id quisquam recusandae minus tenetur, perspiciatis animi qui commodi ad sequi, voluptatibus nihil ratione consectetur eum consequatur eligendi placeat deserunt totam.</p>
   </div>
-</div>
+</div> -->
 
 <%  @users.each do |user| %>
   <% unless user.name == 'Admin' %>
     <div class="listing">
-      <%= image_tag user.logo_image, :class => 'thumb' if user.logo_image.present? %>
+      <%= cl_image_tag user.logo_image, :class => 'thumb' if user.logo_image.present? %>
       <h3><%= link_to user.name, user %></h3>
       <p><%= user.tag_line %></p>
       <p><%= truncate(user.about, length: 300) %></p>

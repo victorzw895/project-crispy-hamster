@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   root :to => 'users#index'
   get '/users/edit' => 'users#edit', :as => :edit_user
-  resources :users, :except => [:edit, :destroy, :update]
+  resources :users, :except => [:edit, :destroy]
   resources :posts
 
 

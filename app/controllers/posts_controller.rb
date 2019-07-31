@@ -34,6 +34,20 @@ class PostsController < ApplicationController
   def new
   end
 
+  # def create
+  #   post = Post.create post_params
+  #   if params[:file].present?
+  #     # Then call Cloudinary's upload method, passing in the file in params
+  #     req = Cloudinary::Uploader.upload(params[:file])
+  #     # Using the public_id allows us to use Cloudinary's powerful image
+  #     # transformation methods.
+  #     animal.image = req["public_id"]
+  #     animal.save
+  #   end
+  #   redirect_to posts_path
+  # end
+
+
   private
   def post_params
     params.require(:post).permit(:query, :user_id, :title, :content, :media, :content_type, user_ids:[])
