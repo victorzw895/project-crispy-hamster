@@ -25,24 +25,10 @@
   </form>
 </div>
 
-<!-- <div class="row">
-  <div class="col-md-3">
-    <h2>Trump Assassinated</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod, asperiores dicta doloremque sequi eligendi porro perspiciatis dolor cumque voluptates quis tempora animi ipsum neque et, nulla sint, modi deserunt.</p>
-  </div>
-  <div class="col-md-6">
-    <h2>Royal Family Actually Lizards</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos temporibus iusto laborum voluptatibus et omnis asperiores, repudiandae natus, dignissimos, quisquam ratione ipsam itaque harum nesciunt earum vel vero numquam.</p>
-  </div>
-  <div class="col-md-3">
-    <h2>Moon Landing Faked</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe id quisquam recusandae minus tenetur, perspiciatis animi qui commodi ad sequi, voluptatibus nihil ratione consectetur eum consequatur eligendi placeat deserunt totam.</p>
-  </div>
-</div> -->
 
 <%  @users.each do |user| %>
   <% unless user.name == 'Admin' %>
-    <div class="listing row">
+    <div class="listing row shadow-sm p-3 mb-5 rounded">
       <%= link_to cl_image_tag(user.logo_image, :class => 'thumb'), user, :class => 'thumb_link' if user.logo_image.present? %>
       <div class="content col-md-10">
         <h3><%= link_to user.name, user %></h3>

@@ -8,7 +8,12 @@
 
   <div class="form-group">
     <%= label_tag :password %>
-    <%= password_field_tag :password, nil, :class => "form-control"  %>
+    <div class="input-group mb-3">
+      <%= password_field_tag :password, nil, :class => "form-control password-input1"  %>
+      <div class="input-group-append">
+         <button class="toggle-show1 btn btn-outline-secondary" type="button" id="button-addon2">👾Show◎◉</button>
+      </div>
+    </div>
   </div>
 
 

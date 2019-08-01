@@ -51,15 +51,14 @@
   <% end %>
   <% if @current_user.present? && @current_user.id == @user.id %>
    |
-    <div class="new_post">
+    <div class="post_new">
       <h4><%= link_to "New Post", new_post_path %></h4>
     </div>
   <% end %>
   <% @posts.each do |post| %>
     <div class="listing">
       <%= cl_image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
-      <h3><%= link_to post.user.name, post.user %></h3>
-      <p><%= link_to post.title, post %></p>
+      <h4><%= link_to post.title, post %></h4>
       <p><%= truncate(post.content, length: 300) %></p>
       <p>Image: <%= post.image %> </p>
     </div>
