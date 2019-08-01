@@ -46,9 +46,11 @@
 
 
 <div class="recent_posts">
-  <h3 class="recent_heading">Recent Posts</h3>
+  <% unless @posts.first.nil? %>
+    <h3 class="recent_heading">Recent Posts</h3>
+  <% end %>
   <% if @current_user.present? && @current_user.id == @user.id %>
-   | 
+   |
     <div class="new_post">
       <h4><%= link_to "New Post", new_post_path %></h4>
     </div>

@@ -1,17 +1,4 @@
-<!-- <div class="form-group">
-  <form action="/users">
-    <label for="exampleFormControlSelect2">Select Industry</label>
-    <select multiple class="form-control" id="query" name="query">
-      <option>All</option>
-      < % @users.each_with_index do |user, index| %>
-        < % user.industries.pluck(:name).uniq.each do |industry| % >
-          <option>< %= industry.uniq %></option>
-        < % end %>
-      < % end % >
-    </select>
-    <button class="btn btn-info btn-sm">Search</button>
-  </form>
-</div> -->
+
 <div class="row">
   <div class="col-md-5 offset-md-4">
     <h1>View all Companies</h1>
@@ -38,16 +25,31 @@
   </form>
 </div>
 
-
+<!-- <div class="row">
+  <div class="col-md-3">
+    <h2>Trump Assassinated</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod, asperiores dicta doloremque sequi eligendi porro perspiciatis dolor cumque voluptates quis tempora animi ipsum neque et, nulla sint, modi deserunt.</p>
+  </div>
+  <div class="col-md-6">
+    <h2>Royal Family Actually Lizards</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos temporibus iusto laborum voluptatibus et omnis asperiores, repudiandae natus, dignissimos, quisquam ratione ipsam itaque harum nesciunt earum vel vero numquam.</p>
+  </div>
+  <div class="col-md-3">
+    <h2>Moon Landing Faked</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe id quisquam recusandae minus tenetur, perspiciatis animi qui commodi ad sequi, voluptatibus nihil ratione consectetur eum consequatur eligendi placeat deserunt totam.</p>
+  </div>
+</div> -->
 
 <%  @users.each do |user| %>
   <% unless user.name == 'Admin' %>
-    <div class="listing">
-      <%= cl_image_tag user.logo_image, :class => 'thumb' if user.logo_image.present? %>
-      <h3><%= link_to user.name, user %></h3>
-      <p><%= user.tag_line %></p>
-      <p><%= truncate(user.about, length: 300) %></p>
-      <p>Find out more at: <%= user.more %> </p>
+    <div class="listing row">
+      <%= link_to cl_image_tag(user.logo_image, :class => 'thumb'), user, :class => 'thumb_link' if user.logo_image.present? %>
+      <div class="content col-md-10">
+        <h3><%= link_to user.name, user %></h3>
+        <p><strong><%= user.tag_line %></strong></p>
+        <p><%= truncate(user.about, length: 300) %></p>
+        <p>Find out more at: <%= user.more %> </p>
+      </div>
     </div>
   <% end %>
 
