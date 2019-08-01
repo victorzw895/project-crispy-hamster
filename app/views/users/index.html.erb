@@ -28,9 +28,9 @@
 
   <form action="/users" class="input-group">
 
-    <select multiple class="form-control" id="query" name="query">
+    <select multiple class="industry_select form-control" id="query" name="query">
       <option>All</option>
-      <% Industry.all.each do |industry| %>
+      <% Industry.all.order(created_at: :desc).each do |industry| %>
         <option><%= industry.name %></option>
       <% end %>
     </select>

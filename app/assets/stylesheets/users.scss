@@ -7,10 +7,34 @@ h1 {
   margin-top: 40px;
 }
 
-.listing {
-  background-color: rgba(240, 234, 237, 0.75);
+.about h1 {
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 13px;
+}
+
+.industry_select {
+  background-color: #f7f9fa;
+}
+
+.listing, .about {
+  background-color: #f7f9fa;
   border: 1px solid rgb(228, 231, 216);
   padding: 10px 25px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+option:hover {
+  transition: 0.5s;
+  background-color: #d5e9f2;
+}
+
+.listing:hover {
+  transition: 0.5s;
+  background-color: rgba(#d5e9f2, 0.75);
 }
 
 .thumb {
@@ -21,6 +45,7 @@ h1 {
 
 .banner {
   max-width: 65vw;
+  margin: 20px;
 }
 
 .banner_image {
@@ -46,6 +71,15 @@ h1 {
 
 .featured {
   max-width: 55vw;
+}
+
+.new_post, .recent_heading {
+  max-width: 40%;
+  display: inline-block;
+}
+
+.new_post {
+  text-align: right;
 }
 
 .field_with_errors {
