@@ -18,50 +18,27 @@
   </div>
 </div>
 
-<div class="form-group">
 
-  <form action="/users">
-    <% if session[:selected_industry].present? %>
-      <label for="exampleFormControlSelect2">Selected Industry: <strong><%= session[:selected_industry] %></strong></label>
-    <% else %>
-      <label for="exampleFormControlSelect2">Select Industry</label>
-    <% end %>
+<div class="form-group">
+  <% if session[:selected_industry].present? %>
+    <label for="exampleFormControlSelect2">Selected Industry: <strong><%= session[:selected_industry] %></strong></label>
+  <% else %>
+    <label for="exampleFormControlSelect2">Select Industry</label>
+  <% end %>
+
+  <form action="/users" class="input-group">
+
     <select multiple class="form-control" id="query" name="query">
       <option>All</option>
       <% Industry.all.each do |industry| %>
         <option><%= industry.name %></option>
       <% end %>
     </select>
-    <div class="input-group-prepend">
-      <button class="btn btn-info btn-sm">Search</button>
-    </div>
+    <button class="btn btn-info btn-sm">Search</button>
   </form>
 </div>
 
 
-
-
-
-
-<!-- <form action="/users">
-<input type="text" name="query" id="query" placeholder="I want to find">
-
-</form> -->
-
-<!-- <div class="row">
-  <div class="col-md-3">
-    <h2>Trump Assassinated</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod, asperiores dicta doloremque sequi eligendi porro perspiciatis dolor cumque voluptates quis tempora animi ipsum neque et, nulla sint, modi deserunt.</p>
-  </div>
-  <div class="col-md-6">
-    <h2>Royal Family Actually Lizards</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos temporibus iusto laborum voluptatibus et omnis asperiores, repudiandae natus, dignissimos, quisquam ratione ipsam itaque harum nesciunt earum vel vero numquam.</p>
-  </div>
-  <div class="col-md-3">
-    <h2>Moon Landing Faked</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe id quisquam recusandae minus tenetur, perspiciatis animi qui commodi ad sequi, voluptatibus nihil ratione consectetur eum consequatur eligendi placeat deserunt totam.</p>
-  </div>
-</div> -->
 
 <%  @users.each do |user| %>
   <% unless user.name == 'Admin' %>

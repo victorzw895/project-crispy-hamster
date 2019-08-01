@@ -1,12 +1,13 @@
 <h1>Latest Posts</h1>
 
 <div class="form-group">
-  <form action="/posts">
-    <% if session[:selected_industry].present? %>
-      <label for="exampleFormControlSelect2">Selected Industry: <strong><%= session[:selected_industry] %></strong></label>
-    <% else %>
-      <label for="exampleFormControlSelect2">Select Industry</label>
-    <% end %>
+  <% if session[:selected_industry].present? %>
+    <label for="exampleFormControlSelect2">Selected Industry: <strong><%= session[:selected_industry] %></strong></label>
+  <% else %>
+    <label for="exampleFormControlSelect2">Select Industry</label>
+  <% end %>
+
+  <form action="/posts" class="input-group">
     <select multiple class="form-control" id="query" name="query">
       <option>All</option>
       <% Industry.all.each do |industry| %>
@@ -19,18 +20,6 @@
 
 
 
-
-<!-- < %= form_for @posts do |f| % >
-< %= f.query :query % >
-
-< %= f.submit "Search"% >
-
-< % end % > -->
-
-<form action="/posts">
-<input type="text" name="query" id="query" placeholder="I want to find">
-<button>Search</button>
-</form>
 
 <% @posts.each do |post| %>
   <div class="listing">
