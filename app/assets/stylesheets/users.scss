@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(#e7f2f5, 0.65);
+}
+
 .container {
    margin: 0 auto;
    max-width: 960px;
@@ -37,7 +41,7 @@ option:hover {
   background-color: rgba(#d5e9f2, 0.75);
 }
 
-.thumb {
+.thumb, .thumb_post {
   max-width: 200px;
   max-height: 120px;
   border-radius: 80%;
@@ -46,6 +50,10 @@ option:hover {
 
 .thumb_link {
   margin: auto;
+}
+
+.thumb_post {
+  margin: 15px 0;
 }
 
 
@@ -80,12 +88,12 @@ option:hover {
   max-width: 55vw;
 }
 
-.new_post, .recent_heading {
+.post_new, .recent_heading {
   max-width: 40%;
   display: inline-block;
 }
 
-.new_post {
+.post_new {
   text-align: right;
 }
 
