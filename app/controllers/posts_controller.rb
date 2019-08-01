@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :check_for_login, :only => [:index, :show, :new]
+  before_action :check_for_company, :only => [:new, :create]
 
   # def index
   #   if params[:query].present?
@@ -12,7 +13,11 @@ class PostsController < ApplicationController
   # end
 
   def index
-    if params[:query] == 'All'
+    if params[:query] != nil
+      # raise 'hell'
+      session[:selected_industry] = params[:query]
+    end
+    if params[:query] == 'All' || session[:selected_industry] == 'All'
       @posts = Post.all.order(created_at: :desc)
     elsif params[:query].present?
       @posts = Post.order(created_at: :desc).search_industry(params[:query])
@@ -21,36 +26,40 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.order(created_at: :desc)
     end
-    if params[:query] != nil
-      # raise 'hell'
-      session[:selected_industry] = params[:query]
-    end
+
     # raise 'hell'
   end
 
+
   def show
+    @post = Post.find params[:id]
   end
 
   def new
+    @post = Post.new
   end
 
-  # def create
-  #   post = Post.create post_params
-  #   if params[:file].present?
-  #     # Then call Cloudinary's upload method, passing in the file in params
-  #     req = Cloudinary::Uploader.upload(params[:file])
-  #     # Using the public_id allows us to use Cloudinary's powerful image
-  #     # transformation methods.
-  #     animal.image = req["public_id"]
-  #     animal.save
-  #   end
-  #   redirect_to posts_path
-  # end
+  def create
+    # raise 'hell'
+
+    post = Post.create post_params
+    if params[:file].present?
+      # Then call Cloudinary's upload method, passing in the file in params
+      req = Cloudinary::Uploader.upload(params[:file])
+      # Using the public_id allows us to use Cloudinary's powerful image
+      # transformation methods.
+      post.image = req["public_id"]
+      post.save
+    end
+    redirect_to posts_path
+  end
 
 
   private
   def post_params
-    params.require(:post).permit(:query, :user_id, :title, :content, :media, :content_type, user_ids:[])
+    params.require(:post).permit(:query, :user_id, :title, :content, :media, :content_type
+      # , user_ids:[]
+    )
   end
 
 end

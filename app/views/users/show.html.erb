@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @user.logo_image.present? %>
-  <%= cl_image_tag @user.logo_image, :class => 'logo'%>
+  <%= cl_image_tag @user.logo_image, :class => 'logo' %>
 <% end %>
 
 <h1><%= @user.name %></h1>
@@ -17,9 +17,11 @@
   </p>
 </div>
 
-<div class="new_post">
-
-</div>
+<% if @current_user.id == @user.id %>
+  <div class="new_post">
+    <h4><%= link_to "New Post", new_post_path %></h4>
+  </div>
+<% end %>
 
 <div class="recent_posts">
   <% @posts.each do |post| %>

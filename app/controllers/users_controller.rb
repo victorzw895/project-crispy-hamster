@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   before_action :check_for_login, :only => [:edit, :update]
+  before_action :check_for_company, :only => [:edit, :update]
   # before_action :check_for_admin, :only => [:show]
 
   def index
     # raise 'hell'
-    if params[:query] == 'All'
+    if params[:query] != nil
+      # raise 'hell'
+      session[:selected_industry] = params[:query]
+    end
+    if params[:query] == 'All' || session[:selected_industry] == 'All'
       @users = User.where(:company => true).order(created_at: :desc)
     elsif params[:query].present?
       @users = User.order(created_at: :desc).search_industry(params[:query])
@@ -13,10 +18,7 @@ class UsersController < ApplicationController
     else
       @users = User.where(:company => true).order(created_at: :desc)
     end
-    if params[:query] != nil
-      # raise 'hell'
-      session[:selected_industry] = params[:query]
-    end
+
   end
 
   def new
@@ -72,13 +74,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @posts = Post.where(:user_id => @current_user.id).order(created_at: :desc)
+    @posts = Post.where(:user_id => @user.id).order(created_at: :desc)
     # @current_user if @current_user.
-    if @current_user.admin? || !@current_user.company?
-      @user = nil
-      @posts = nil
-      redirect_to users_path
-    end
+    # if @current_user.admin? || !@current_user.company?
+    #   @user = nil
+    #   @posts = nil
+    #   redirect_to users_path
+    # end
   end
 
   private

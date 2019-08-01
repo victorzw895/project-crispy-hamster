@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= @post.content_type %></h1>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.user.name %></p>
+
+<% if @post.image.present? %>
+  <div class="featured_container">
+    <%= cl_image_tag @post.image, :class => 'featured' %>
+  </div>
+<% end %>
+
+<p><%= @post.content %></p>

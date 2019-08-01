@@ -3,6 +3,10 @@
    max-width: 960px;
 }
 
+h1 {
+  margin-top: 40px;
+}
+
 .listing {
   background-color: rgba(240, 234, 237, 0.75);
   border: 1px solid rgb(228, 231, 216);
@@ -32,4 +36,14 @@
 .fun {
   position: fixed;
   left: 75%;
+  display: none;
+}
+
+.featured_container {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.featured {
+  max-width: 55vw;
 }

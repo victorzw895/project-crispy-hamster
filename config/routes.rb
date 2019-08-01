@@ -7,6 +7,8 @@
 #           POST   /users(.:format)          users#create
 #  new_user GET    /users/new(.:format)      users#new
 #      user GET    /users/:id(.:format)      users#show
+#           PATCH  /users/:id(.:format)      users#update
+#           PUT    /users/:id(.:format)      users#update
 #     posts GET    /posts(.:format)          posts#index
 #           POST   /posts(.:format)          posts#create
 #  new_post GET    /posts/new(.:format)      posts#new

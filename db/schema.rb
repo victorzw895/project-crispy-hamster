@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_233921) do
+ActiveRecord::Schema.define(version: 2019_07_31_070035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_07_30_233921) do
   create_table "users", force: :cascade do |t|
     t.text "email"
     t.text "name"
-    t.boolean "company", default: false
     t.text "tag_line"
     t.text "about"
     t.text "logo_image"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_233921) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.boolean "company", default: false
   end
 
 end

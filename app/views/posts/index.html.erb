@@ -1,6 +1,12 @@
+<h1>Latest Posts</h1>
+
 <div class="form-group">
   <form action="/posts">
-    <label for="exampleFormControlSelect2">Select Industry</label>
+    <% if session[:selected_industry].present? %>
+      <label for="exampleFormControlSelect2">Selected Industry: <strong><%= session[:selected_industry] %></strong></label>
+    <% else %>
+      <label for="exampleFormControlSelect2">Select Industry</label>
+    <% end %>
     <select multiple class="form-control" id="query" name="query">
       <option>All</option>
       <% Industry.all.each do |industry| %>
@@ -12,7 +18,7 @@
 </div>
 
 
-<h1>Latest Feed</h1>
+
 
 <!-- < %= form_for @posts do |f| % >
 < %= f.query :query % >
@@ -28,9 +34,8 @@
 
 <% @posts.each do |post| %>
   <div class="listing">
-    <%= cl_image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
-    <h3><%= link_to post.user.name, post.user %></h3>
-    <p><%= link_to post.title, post %></p>
+    <%= link_to cl_image_tag(post.user.logo_image, :class => 'thumb'), post.user if post.user.logo_image.present? %>
+    <h3><%= link_to post.title, post %></h3>
     <p><%= truncate(post.content, length: 300) %></p>
     <p>Image: <%= post.image %> </p>
   </div>

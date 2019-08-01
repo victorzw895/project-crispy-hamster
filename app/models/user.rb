@@ -14,6 +14,7 @@
 #  updated_at      :datetime         not null
 #  password_digest :string
 #  admin           :boolean          default(FALSE)
+#  company         :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord

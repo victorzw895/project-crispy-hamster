@@ -2,7 +2,7 @@
 
 <h1>Edit Profile</h1>
 
-<div class="company-edit-form">
+<% if @user.company? %>
   <%= form_for @user, :html => {:multipart => true} do |f| %>
     <div class="form-group">
       <%= f.label :tag_line %>
@@ -43,11 +43,10 @@
 
     <%= f.submit "Update", :class => "btn btn-primary" %>
   <% end %>
-</div>
+<% end %>
 
 
-
-<div class="user-edit-form">
+<% unless @user.company? %>
   <%= form_for @user, :html => {:multipart => true} do |f| %>
 
     <div class="form-group">
@@ -77,4 +76,4 @@
 
     <%= f.submit "Update", :class => "btn btn-primary" %>
   <% end %>
-</div>
+<% end %>
