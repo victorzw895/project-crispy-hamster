@@ -34,7 +34,7 @@
         <h3><%= link_to user.name, user %></h3>
         <p><strong><%= user.tag_line %></strong></p>
         <p><%= truncate(user.about, length: 300) %></p>
-        <p>Find out more at: <%= user.more %> </p>
+        <p>Find out more at: <a href="<%= user.more %>"><%= user.more %></a> </p>
       </div>
     </div>
   <% end %>

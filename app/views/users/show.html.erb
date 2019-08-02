@@ -60,7 +60,6 @@
       <%= cl_image_tag post.user.logo_image, :class => 'thumb' if post.user.logo_image.present? %>
       <h4><%= link_to post.title, post %></h4>
       <p><%= truncate(post.content, length: 300) %></p>
-      <p>Image: <%= post.image %> </p>
     </div>
   <% end %>
 </div>

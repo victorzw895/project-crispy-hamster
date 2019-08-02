@@ -11,6 +11,12 @@ h1 {
   margin-top: 40px;
 }
 
+.main-logo {
+  max-width: 35px;
+  max-height: 35px;
+  margin: 0 15px 0 10px;
+}
+
 .about h1 {
   margin-top: 20px;
 }
@@ -44,7 +50,7 @@ option:hover {
 .thumb, .thumb_post {
   max-width: 200px;
   max-height: 120px;
-  border-radius: 80%;
+  border-radius: 10%;
   margin: auto;
 }
 
