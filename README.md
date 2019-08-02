@@ -2,7 +2,7 @@
 
 # Project 1 - Crispy Hamster
 
-![Screenshot of root page](/assets/images/screenshot1.jpg?raw=true)
+![Screenshot of root page](https://raw.githubusercontent.com/victorzw895/project-crispy-hamster/assets/images/screenshot1.jpg)
 
 
 
