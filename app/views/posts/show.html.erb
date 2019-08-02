@@ -1,13 +1,16 @@
-<h1><%= @post.content_type %></h1>
 
-<h1><%= @post.title %></h1>
+<div class="about">
+  <div class="post_about">
+    <h5><%= @post.user.name %> - Article Type<%= @post.content_type %></h5>
 
-<p><%= @post.user.name %></p>
+    <h1><%= @post.title %></h1>
 
-<% if @post.image.present? %>
-  <div class="featured_container">
-    <%= cl_image_tag @post.image, :class => 'featured' %>
+    <% if @post.image.present? %>
+      <div class="featured_container">
+        <%= cl_image_tag @post.image, :class => 'featured' %>
+      </div>
+    <% end %>
+
+    <p><%= @post.content %></p>
   </div>
-<% end %>
-
-<p><%= @post.content %></p>
+</div>

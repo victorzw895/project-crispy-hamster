@@ -1,3 +1,5 @@
+// All general CSS, application.html.erb //////////////////////////////////
+
 body {
   background-color: rgba(#e7f2f5, 0.65);
 }
@@ -17,51 +19,18 @@ h1 {
   margin: 0 15px 0 10px;
 }
 
-.about h1 {
+.fun {
+  position: fixed;
+  left: 75%;
+  display: none;
+  z-index: 1;
+}
+
+// Show page //////////////////////////////////////////////////////////
+
+.about h1, .post_about h5 {
   margin-top: 20px;
 }
-
-h3 {
-  margin-top: 13px;
-}
-
-.industry_select {
-  background-color: #f7f9fa;
-}
-
-.listing, .about {
-  background-color: #f7f9fa;
-  border: 1px solid rgb(228, 231, 216);
-  padding: 10px 25px;
-  margin: 10px 0;
-  border-radius: 5px;
-}
-
-option:hover {
-  transition: 0.5s;
-  background-color: #d5e9f2;
-}
-
-.listing:hover {
-  transition: 0.5s;
-  background-color: rgba(#d5e9f2, 0.75);
-}
-
-.thumb, .thumb_post {
-  max-width: 200px;
-  max-height: 120px;
-  border-radius: 10%;
-  margin: auto;
-}
-
-.thumb_link {
-  margin: auto;
-}
-
-.thumb_post {
-  margin: 15px 0;
-}
-
 
 .banner {
   max-width: 65vw;
@@ -77,14 +46,7 @@ option:hover {
   max-width: 200px;
 }
 
-
-.fun {
-  position: fixed;
-  left: 75%;
-  display: none;
-  z-index: 1;
-}
-
+// Post show view
 .featured_container {
   text-align: center;
   vertical-align: middle;
@@ -102,6 +64,54 @@ option:hover {
 .post_new {
   text-align: right;
 }
+
+
+// Index page ////////////////////////////////////////////////////////
+
+// Link to Company Show page
+h3 {
+  margin-top: 13px;
+}
+// Select search option /////////////////////////////////////////////
+.industry_select {
+  background-color: #f7f9fa;
+}
+// Individual select, hover effect /////////////////////////////////
+option:hover {
+  transition: 0.5s;
+  background-color: #d5e9f2;
+}
+
+// Every post, and listing, and content div /////////////////////////
+.listing, .about {
+  background-color: #f7f9fa;
+  border: 1px solid rgb(228, 231, 216);
+  padding: 10px 25px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+// Every post, hover
+.listing:hover {
+  transition: 0.5s;
+  background-color: rgba(#d5e9f2, 0.75);
+}
+
+// Index view, thumbnail for listing and posts
+.thumb, .thumb_post {
+  max-width: 200px;
+  max-height: 120px;
+  border-radius: 10%;
+  margin: auto;
+}
+
+.thumb_link {
+  margin: auto;
+}
+
+.thumb_post {
+  margin: 15px 0;
+}
+
 
 .field_with_errors {
   display: inline-block;
