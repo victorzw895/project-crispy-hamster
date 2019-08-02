@@ -2,7 +2,8 @@
 
 # Project 1 - Crispy Hamster
 
-![Screenshot of root page](/assets/images/screenshot1.jpg)
+![Screenshot of root page](/assets/images/screenshot1.jpg?raw=true)
+
 
 
 # Link - Deployed on Heroku
