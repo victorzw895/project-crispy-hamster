@@ -3,23 +3,34 @@ class UsersController < ApplicationController
   before_action :check_for_company, :only => [:edit, :update]
   # before_action :check_for_admin, :only => [:show]
 
+  # def index
+  #   # raise 'hell'
+  #   if params[:query] != nil
+  #     # raise 'hell'
+  #     session[:selected_industry] = params[:query]
+  #   end
+  #   if params[:query] == 'All' || session[:selected_industry] == 'All'
+  #     @users = User.where(:company => true).order(created_at: :desc)
+  #   elsif params[:query].present?
+  #     @users = User.order(created_at: :desc).search_industry(params[:query])
+  #   elsif session[:selected_industry].present?
+  #     @users = User.order(created_at: :desc).search_industry(session[:selected_industry])
+  #   else
+  #     @users = User.where(:company => true).order(created_at: :desc)
+  #   end
+
+  # end
+
+
   def index
-    # raise 'hell'
-    if params[:query] != nil
-      # raise 'hell'
-      session[:selected_industry] = params[:query]
-    end
-    if params[:query] == 'All' || session[:selected_industry] == 'All'
-      @users = User.where(:company => true).order(created_at: :desc)
-    elsif params[:query].present?
-      @users = User.order(created_at: :desc).search_industry(params[:query])
-    elsif session[:selected_industry].present?
-      @users = User.order(created_at: :desc).search_industry(session[:selected_industry])
-    else
-      @users = User.where(:company => true).order(created_at: :desc)
-    end
+
+    url = 'https://www.themuse.com/api/public/companies?location=Sydney%2C%20Australia&page=0';
+
+    @info = HTTParty.get url
+
 
   end
+
 
   def new
     @user = User.new
